@@ -106,6 +106,7 @@ install::
 	perl -pi -e "s!COMPILERTYPE!$(COMPILERTYPE)!g" $(SOURCE_DIR)/example/Makefile
 	perl -pi -e "s!COMPILERNAME!$(COMPILERNAMETYPE)!g" $(SOURCE_DIR)/example/Makefile
 	perl -pi -e "s!OPENMPFLAG!$(OPENMPFLAG)!g" $(SOURCE_DIR)/example/Makefile
+	$(PKGROOT_BIND_MOUNT)
 	( \
 	  $(MODULE_LOAD_CC); \
           $(MODULE_LOAD_MAGMA_CUDA); \
