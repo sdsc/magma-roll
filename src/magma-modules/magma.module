@@ -1,0 +1,8 @@
+#%Module1.0
+module-whatis "magma"
+module-whatis "Version: VERSION"
+module-whatis "Description: magma"
+module-whatis "Compiler: ROLLCOMPILER Cuda: CUDAVERSION"
+setenv MAGMAHOME /opt/magma
+prepend-path LD_LIBRARY_PATH /opt/magma/lib
+module load ROLLCOMPILER CUDAVER
