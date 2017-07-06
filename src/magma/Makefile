@@ -67,18 +67,18 @@ MODULE_LOAD_MAGMA_CUDA = $(call MODULE_LOAD_PACKAGE, $(CUDAVERSION), CUDAHOME)
 DESCRIBE_MAGMA_CUDA = echo built with cuda $(call GET_MODULE_VERSION, $(CUDAVERSION))
 
 
+MODULE_LOAD_MAGMA_MKL = $(call MODULE_LOAD_PACKAGE, mkl/$${L_MKL_VERSION}, MKLHOME)
+DESCRIBE_MAGMA_MKL = echo built with mkl $(call GET_MODULE_VERSION, mkl/$${L_MKL_VERSION})
+
 COMPILERTYPE=gf
 COMPILERNAMETYPE=gnu
 OPENMPFLAG=-fopenmp
-INTELCOMPILERFLAGS=
+INTELCOMPILERFLAGS = -L$${MKLROOT}/../compiler/lib/intel64 -liomp5
 ifeq ("$(COMPILERNAME)", "intel")
   COMPILETYPE = intel 
   COMPILERNAMETYPE = intel
-  OPENMPFLAG = -fopenmp
-  INTELCOMPILERFLAGS = -L$${MKLROOT}/../compiler/lib/intel64 -liomp5
 endif
 
-OPENMPFLAG=-fopenmp
 ifeq ("$(COMPILERNAME)", "pgi")
   OPENMPFLAG = -mp
 endif
@@ -89,7 +89,7 @@ DESCRIPTION:
 	  $(DESCRIBE_PKG); \
 	  $(DESCRIBE_CC); \
 	  $(DESCRIBE_MAGMA_CUDA); \
-          $(DESCRIBE_MKL) \
+	  $(DESCRIBE_MAGMA_MKL); \
 	) > $@
 
 LICENSE: $(SRC_DIRS)
@@ -110,7 +110,7 @@ install::
 	( \
 	  $(MODULE_LOAD_CC); \
           $(MODULE_LOAD_MAGMA_CUDA); \
-          $(MODULE_LOAD_MKL); \
+	  $(MODULE_LOAD_MAGMA_MKL); \
           perl -pi -e "s!INTELCOMPILERFLAGS!$(INTELCOMPILERFLAGS)!g" $(SOURCE_DIR)/example/Makefile; \
           export CC=$(CC); \
           export CXX=$(CXX); \
