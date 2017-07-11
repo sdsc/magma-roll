@@ -29,7 +29,7 @@ ARCH      = ar
 ARCHFLAGS = cr
 RANLIB    = ranlib
 
-GPU_TARGET = sm_20 sm_37 sm_50 sm_52 sm_60
+GPU_TARGET = sm_20 sm_30 sm_35 sm_37 sm_50 sm_52 sm_60 sm_61
 MIN_ARCH = 370
 
 
