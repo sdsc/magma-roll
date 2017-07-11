@@ -30,6 +30,9 @@ ARCHFLAGS = cr
 RANLIB    = ranlib
 
 
+GPU_TARGET = sm_60
+MIN_ARCH = 200
+
 # --------------------
 # flags
 
