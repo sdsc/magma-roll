@@ -29,8 +29,8 @@ ARCH      = ar
 ARCHFLAGS = cr
 RANLIB    = ranlib
 
-GPU_TARGET = sm_60
-MIN_ARCH = 200
+GPU_TARGET = sm_37 sm_50 sm_52 sm_60
+MIN_ARCH = 370
 
 PGI_FORTRAN=1
 
