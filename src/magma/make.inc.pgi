@@ -23,11 +23,13 @@
 CC        = pgcc
 CXX       = pgc++
 NVCC      = nvcc
-FORT      = pgf90
+FORT      = pgfortran
 
 ARCH      = ar
 ARCHFLAGS = cr
 RANLIB    = ranlib
+
+PGI_FORTRAN=1
 
 
 # --------------------
