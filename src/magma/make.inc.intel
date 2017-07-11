@@ -30,7 +30,7 @@ ARCHFLAGS = cr
 RANLIB    = ranlib
 
 
-GPU_TARGET = sm37 sm60
+GPU_TARGET = sm35 sm60
 
 # --------------------
 # flags
